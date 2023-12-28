@@ -81,11 +81,8 @@ a{
 }
 
 /* coloration */
-.scroll-container > div:nth-child(even) {
-  background-color: #87ea87;
-}
-.scroll-container > div:nth-child(odd) {
-  background-color: #87ccea;
+.scroll-container > div {
+  background-color: #CCCCCC;
 }
 
 /* appearance fixes */
