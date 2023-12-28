@@ -97,7 +97,7 @@ h2{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem 1.5rem 2rem 1.5rem;
+    padding: 1.5rem 1rem 1.5rem 1rem;
     width: 100%;
     height: 100%;
     color: #FFFFFF;
@@ -109,6 +109,7 @@ h2{
   flex-direction: column;
   align-items: start;
   gap: 0.5rem;
+  padding: 0.5rem;
 }
 
 a{
@@ -138,12 +139,12 @@ a{
 /* card Location */
 .card-display-location{
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   flex-direction: column;
 }
 .card-location-item{
-  height: 0.75rem;
-  width: 0.75rem;
+  height: 0.5rem;
+  width: 0.5rem;
   background-color: #FFFFFF54;
   border-radius: 100%;
 }
