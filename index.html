@@ -8,7 +8,14 @@
     </head>
     <body>
         <div class="scroll-container" id="scroll-container">
-            <div class="card">Hello World</div>
+            <div class="card" style="background-image: url(top-img.png);">
+                <div class="card-content">
+                    <h1>
+                        <p>蔵前にある</p>
+                        <p class="second-line">おすすめのカフェ</p>
+                    </h1>
+                </div>
+            </div>
             <div class="card" style="background-image: url(yello-img.JPG);">
                 <div class="card-content">
                     <div class="card-text">
@@ -40,4 +47,18 @@
             </div>         
         </div>
     </body>
+    <script>
+        const backgroundColors = ["#2A3238", "#FFCF24", "#F3DC8B", "#D4CDAB"]
+        const container = document.querySelector('.scroll-container')
+        container.addEventListener('scroll', () => {
+            for (var i = 0; i < backgroundColors.length; i++) {
+                // Calculate the upper and lower ranges, so if the screen is between these, change background color
+                const upperRange = (i + 1) * window.innerHeight
+                const lowerRange = (i + 1) * window.innerHeight - window.innerHeight
+                if ( container.scrollTop > lowerRange && container.scrollTop < upperRange){
+                    container.style.backgroundColor = backgroundColors[i]
+                }
+            } 
+        })
+    </script>
 </html>
