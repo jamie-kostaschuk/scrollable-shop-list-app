@@ -44,9 +44,11 @@
   align-items: flex-end;
   background-size: cover;
   overflow: hidden;
+  position: relative;
 }
 
 .topContent{
+    z-index: 5;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

@@ -10,10 +10,12 @@
   background-size: cover;
   overflow: hidden;
   background-color: #CCCCCC;
-}
+  position: relative;
+} 
 
 .cardContent{
     display: flex;
+    z-index: 5;
     flex-direction: column;
     justify-content: space-between;
     padding: 1.5rem 1rem 1.5rem 1rem;

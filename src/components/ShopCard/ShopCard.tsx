@@ -1,6 +1,7 @@
 import { array } from 'prop-types';
 import styles from './ShopCard.module.css'
 
+import Image from 'next/image'
 
 interface ShopCardProps {
   backgroundImageURL: string;
@@ -15,7 +16,15 @@ interface ShopCardProps {
 
 export function ShopCard({backgroundImageURL, title, secondaryTitle, description, linkURL, numberOfCards, locationOfCard}: ShopCardProps) {
     return(
-        <div className={styles.card} style={{ backgroundImage: `url('${backgroundImageURL}')`, backgroundPosition: "center"}}>
+        <div className={styles.card}>
+            <div className='absolute h-full w-full'>
+                <Image
+                src={`/${backgroundImageURL}`}
+                layout="fill"
+                alt="Picture about the resturant"
+                objectFit="cover"
+                />
+            </div>
             <div className={styles.cardContent}>
                 <div className={styles.cardDisplayLocation}>
                     {Array.from(Array(numberOfCards), (e, i) => {

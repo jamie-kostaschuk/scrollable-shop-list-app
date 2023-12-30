@@ -3,6 +3,7 @@ import { ScrollableContent } from './ScrollableContent';
 import styles from './page.module.css'
 
 import React, { useRef, useEffect } from 'react';
+import Image from 'next/image'
 
 import { ShopCard } from '@/components/ShopCard/ShopCard';
 import { EndingCard } from '@/components/EndingCard/EndingCard';
@@ -48,7 +49,15 @@ export default function Home() {
     return (
         <div className={styles.mainContainer}>
             <ScrollableContent>
-                <div className={styles.topSection} style={{ backgroundImage: `url('${topSectionInfo.backgroundImageURL}')`, backgroundPosition: "center" }}>
+                <div className={styles.topSection}>
+                    <div className='absolute h-full w-full'>
+                        <Image
+                        src={`/${topSectionInfo.backgroundImageURL}`}
+                        layout="fill"
+                        alt="Picture about the resturant"
+                        objectFit="cover"
+                        />
+                    </div>
                     <div className={styles.topContent}>
                         <h1 className={styles.h1Heading}>
                             <p>{topSectionInfo.titleLineOne}</p>
