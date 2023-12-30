@@ -1,44 +1,58 @@
-"use client"
-import Image from 'next/image'
+
+import { ScrollableContent } from './ScrollableContent';
 import styles from './page.module.css'
 
 import React, { useRef, useEffect } from 'react';
 
+import { ShopCard } from '@/components/ShopCard';
+import { EndingCard } from '@/components/EndingCard';
+
 export default function Home() {
-    
-    const myRef = useRef<HTMLDivElement>(null);
+        const topSectionInfo = {
+        titleLineOne: "蔵前にある",
+        titleLineTwo: "おすすめのお店",
+        backgroundImageURL: "img/top-img.png",
 
-    useEffect(() => {
-        const backgroundColors = ["#2A3238", "#FFCF24", "#F3DC8B", "#D4CDAB"]
-
-        const handleScroll = () => {
-            for (var i = 0; i < backgroundColors.length; i++) {
-                // Calculate the upper and lower ranges, so if the screen is between these, change background color
-                const upperRange = (i + 1) * window.innerHeight
-                const lowerRange = (i + 1) * window.innerHeight - window.innerHeight
-                if (myRef.current?.scrollTop !== undefined && myRef.current?.scrollTop > lowerRange && myRef.current?.scrollTop < upperRange) {
-                    myRef.current.style.backgroundColor = backgroundColors[i];
-                }
-            }  
-        };
-        if (myRef.current) {
-            myRef.current.addEventListener('scroll', handleScroll);
-
-            // Cleanup the event listener when the component unmounts
-            return () => {
-                myRef.current?.removeEventListener('scroll', handleScroll);
-            };
-        }
-    }, [myRef]);
+    }
+    const cardsInfo =[
+        {
+            title: "Yello",
+            secondaryTitle: "食べれるネオ立ち飲み屋",
+            description: "15種類の無農薬レモンサワーを楽しめる、素敵な立ち飲み屋",
+            backgroundImageURL: "img/yello-img.png" ,
+            linkURL: "https://maps.app.goo.gl/vK2J3DaSyNGoeH6VA" 
+        },
+        {
+            title: "McLean",
+            secondaryTitle: "-OLD BURGER STAND-",
+            description: "バーガー、ポテトとビールの組み合わせが最高なバーガースタンド",
+            backgroundImageURL: "img/mclean-img.png" ,
+            linkURL:"https://maps.app.goo.gl/nh9xKDgAzTYSy2ek9" 
+        },
+        {
+            title: "Dandelion",
+            secondaryTitle: "",
+            description: "チョコレートにこだわったお店でデートにもプレゼント調達にもおすすめ" ,
+            backgroundImageURL: "img/dandelion-img.png" ,
+            linkURL:"https://maps.app.goo.gl/DZKxSBo5hVQdadQaA" 
+        },
+        {
+            title: "シエロ イ リオ",
+            secondaryTitle: "リバーサイドカフェ",
+            description: "ご飯がとても美味しく隅田川も見渡せることができ、特別な日などのお祝いにおすすめ",
+            backgroundImageURL: "img/cielo-img.png" ,
+            linkURL:"https://maps.app.goo.gl/PobfpvsQ8gp15uVr9" 
+        },
+    ]
 
     return (
         <div className={styles.mainContainer}>
-        <div className={styles.scrollContainer} ref={myRef}>
-                <div className={styles.topSection} style={{ backgroundImage: "url('img/top-img.png')" }}>
+            <ScrollableContent>
+                <div className={styles.topSection} style={{ backgroundImage: `url('${topSectionInfo.backgroundImageURL}')`, backgroundPosition: "center" }}>
                     <div className={styles.topContent}>
                         <h1 className={styles.h1Heading}>
-                            <p>蔵前にある</p>
-                            <p className={styles.secondLine}>おすすめのお店</p>
+                            <p>{topSectionInfo.titleLineOne}</p>
+                            <p className={styles.secondLine}>{topSectionInfo.titleLineTwo}</p>
                         </h1>
                         <svg className={styles.arrows}>
                             <path className={styles.a1} d="M0 0 L20 20 L40 0"></path>
@@ -47,57 +61,22 @@ export default function Home() {
                         </svg>
                     </div>
                 </div>
-                <div className={styles.card} style={{ backgroundImage: "url('img/yello-img.png')" }}>
-                    <div className={styles.cardContent}>
-                        <div className={styles.cardDisplayLocation}>
-                            <div className={styles.cardLocationItem} id="currentCardLocationItem"></div>
-                            <div className={styles.cardLocationItem}></div>
-                            <div className={styles.cardLocationitem}></div>
-                        </div>
-                        <div className={styles.cardBottomContent}>
-                            <div className={styles.cardText}>
-                                <h2 className={styles.h2Heading}>Yello</h2>
-                                <p className={styles.cardSecondaryHeader}>食べれるネオ立ち飲み屋</p>
-                                <p>15種類の無農薬レモンサワーを楽しめる、素敵な立ち飲み屋</p>
-                            </div>
-                            <a className={styles.cardLink} href="https://maps.app.goo.gl/vK2J3DaSyNGoeH6VA" target="_blank">もっとみる</a>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.card} style={{ backgroundImage: "url('img/mclean-img.png')" }}>
-                    <div className={styles.cardContent}>
-                        <div className={styles.cardDisplayLocation}>
-                            <div className={styles.cardLocationitem}></div>
-                            <div className={styles.cardLocationitem} id="currentCardLocationItem"></div>
-                            <div className={styles.cardLocationitem}></div>
-                        </div>
-                        <div className={styles.cardBottomContent}>
-                            <div className={styles.cardText}>
-                                <h2 className={styles.h2Heading}>McLean</h2>
-                                <p className={styles.cardSecondaryHeader}>-OLD BURGER STAND-</p>
-                                <p>バーガーのビールの組み合わせが最高なバーガースタンド</p>
-                            </div>
-                            <a className={styles.cardLink} href="https://maps.app.goo.gl/nh9xKDgAzTYSy2ek9" target="_blank">もっとみる</a>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.card} style={{ backgroundImage: "url('img/dandelion-img.png')" }}>
-                    <div className={styles.cardContent}>
-                        <div className={styles.cardDisplayLocation}>
-                            <div className={styles.cardLocationitem}></div>
-                            <div className={styles.cardLocationitem}></div>
-                            <div className={styles.cardLocationitem} id="currentCardLocationItem"></div>
-                        </div>
-                        <div className={styles.cardBottomContent}>
-                            <div className={styles.cardText}>
-                                <h2 className={styles.h2Heading}>Dandelion</h2>
-                                <p>チョコレートにこだわったお店で店内飲食でもプレゼントにもおすすめ</p>
-                            </div>
-                            <a className={styles.cardLink} href="https://maps.app.goo.gl/DZKxSBo5hVQdadQaA" target="_blank">もっとみる</a>
-                        </div>
-                    </div> 
-                </div>         
-            </div>
+                {cardsInfo.map((item, index) => {
+                    return(
+                        <ShopCard 
+                            key={index}
+                            backgroundImageURL={item.backgroundImageURL}
+                            title={item.title}
+                            secondaryTitle={item.secondaryTitle}
+                            description={item.description}
+                            linkURL={item.linkURL}
+                            numberOfCards={cardsInfo.length}
+                            locationOfCard={index + 1}
+                        /> 
+                    )
+                })}
+                <EndingCard />
+            </ScrollableContent>
         </div>
     )
 }
