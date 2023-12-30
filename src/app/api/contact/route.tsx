@@ -5,6 +5,12 @@ export async function POST(req: any, res:any){
     const data = await req.json();
 
 
+    console.log("Data received is: ", data.input)
+
+    console.log("to address is: ", process.env.EMAIL_TO)
+    console.log("user is: ", user)
+    console.log("Password is: ", process.env.EMAIL_PASSWORD)
+
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465, 
@@ -14,6 +20,7 @@ export async function POST(req: any, res:any){
             pass: process.env.EMAIL_PASSWORD,
         },
     });
+    
     
     try {
         const mail = await transporter.sendMail({
