@@ -1,6 +1,6 @@
 "use client"
 import { array } from 'prop-types';
-import styles from './endingcard.module.css'
+import styles from './EndingCard.module.css'
 import Image from 'next/image';
 
 import { useState } from 'react';

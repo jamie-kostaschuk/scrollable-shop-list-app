@@ -4,8 +4,8 @@ import styles from './page.module.css'
 
 import React, { useRef, useEffect } from 'react';
 
-import {ShopCard} from '@/components/ShopCard';
-import { EndingCard } from '@/components/EndingCard';
+import {ShopCard} from '@/components/ShopCard/ShopCard';
+import { EndingCard } from '@/components/EndingCard/EndingCard';
 
 
 interface ScrollableContentProps {
