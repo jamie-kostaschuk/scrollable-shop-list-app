@@ -37,7 +37,7 @@ export default function Home() {
             linkURL:"https://maps.app.goo.gl/DZKxSBo5hVQdadQaA" 
         },
         {
-            title: "シエロ イ リオ",
+            title: "Cielo y Rio",
             secondaryTitle: "リバーサイドカフェ",
             description: "ご飯がとても美味しく隅田川も見渡せることができ、特別な日におすすめ",
             backgroundImageURL: "img/cielo-img.png" ,
