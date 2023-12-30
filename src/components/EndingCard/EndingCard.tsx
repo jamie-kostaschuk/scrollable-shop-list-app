@@ -85,7 +85,7 @@ export function EndingCard({}: EndingCardProps) {
                                 placeholder='あなたのお気に入りのお店など'
                             />
                         </div>
-                        <button type="submit" disabled={loading} className='text-nowrap px-8 py-2 bg-white disabled:bg-[#3B444C] w-min text-[#2A3238] disabled:text-[#99A8B4] rounded'>送信</button>
+                        <button type="submit" disabled={loading} className=' break-keep px-8 py-2 bg-white disabled:bg-[#3B444C] w-min text-[#2A3238] disabled:text-[#99A8B4] rounded'>送信</button>
                         
                     </form>
                     <Snackbar open={successToast} autoHideDuration={3000} onClose={handleSuccessClose}>
