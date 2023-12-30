@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer"
 
 export async function POST(req: any, res:any){
-    const user = process.env.user;
+    const user = process.env.USER;
     const data = await req.json();
 
 
@@ -11,7 +11,7 @@ export async function POST(req: any, res:any){
         secure: true, 
         auth: {
             user: user,
-            pass: process.env.pass,
+            pass: process.env.PASS,
         },
     });
     
