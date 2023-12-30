@@ -56,6 +56,7 @@ export default function Home() {
                         layout="fill"
                         alt="Picture about the resturant"
                         objectFit="cover"
+                        priority
                         />
                     </div>
                     <div className={styles.topContent}>

@@ -23,6 +23,7 @@ export function ShopCard({backgroundImageURL, title, secondaryTitle, description
                 layout="fill"
                 alt="Picture about the resturant"
                 objectFit="cover"
+                priority
                 />
             </div>
             <div className={styles.cardContent}>
