@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer"
 
 export async function POST(req: any, res:any){
-    const user = process.env.USER;
+    const user = process.env.EMAIL_USERNAME;
     const data = await req.json();
 
 
@@ -11,15 +11,14 @@ export async function POST(req: any, res:any){
         secure: true, 
         auth: {
             user: user,
-            pass: process.env.PASS,
+            pass: process.env.EMAIL_PASSWORD,
         },
     });
     
-    
     try {
         const mail = await transporter.sendMail({
-            from: "user",
-            to: "JamiePersonalProgramming@gmail.com",
+            from: user,
+            to: process.env.EMAIL_TO,
             subject: `Contact from Kuramae`,
             html: `
                 <p>This is inputted content<p>
