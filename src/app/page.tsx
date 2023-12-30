@@ -39,7 +39,7 @@ export default function Home() {
         {
             title: "シエロ イ リオ",
             secondaryTitle: "リバーサイドカフェ",
-            description: "ご飯がとても美味しく隅田川も見渡せることができ、特別な日などのお祝いにおすすめ",
+            description: "ご飯がとても美味しく隅田川も見渡せることができ、特別な日におすすめ",
             backgroundImageURL: "img/cielo-img.png" ,
             linkURL:"https://maps.app.goo.gl/PobfpvsQ8gp15uVr9" 
         },
