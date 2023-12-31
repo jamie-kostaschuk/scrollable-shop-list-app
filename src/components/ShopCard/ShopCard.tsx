@@ -39,7 +39,7 @@ export function ShopCard({backgroundImageURL, title, secondaryTitle, description
                         {secondaryTitle && <p className={styles.cardSecondaryHeader}>{secondaryTitle}</p>}
                         <p>{description}</p>
                     </div>
-                    <a className={styles.cardLink} href={linkURL} target="_blank">もっとみる</a>
+                    <a className={styles.cardLink} href={linkURL} target="_blank">マップで見る</a>
                 </div>
             </div>
         </div>
