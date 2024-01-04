@@ -13,7 +13,6 @@ export default function Home() {
         titleLineOne: "蔵前にある",
         titleLineTwo: "おすすめのお店",
         backgroundImageURL: "img/top-img.png",
-
     }
     const cardsInfo =[
         {

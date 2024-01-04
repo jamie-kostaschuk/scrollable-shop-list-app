@@ -15,9 +15,6 @@ interface ScrollableContentProps {
 
 export function ScrollableContent({children}: ScrollableContentProps) {
 
-
-    
-
     const myRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -28,7 +25,7 @@ export function ScrollableContent({children}: ScrollableContentProps) {
             "#D4CDAB", // Dandelion
             "#7A9A7F", //Cielo
             "#2A3238", // Ending
-            ]
+        ]
         const handleScroll = () => {
             for (var i = 0; i < backgroundColors.length; i++) {
                 // Calculate the upper and lower ranges, so if the screen is between these, change background color

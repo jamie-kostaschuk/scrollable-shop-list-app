@@ -80,7 +80,7 @@ export function EndingCard({}: EndingCardProps) {
                                 required 
                                 maxLength={200} 
                                 rows={4} 
-                                className='rounded-lg border-white border bg-[#3B444C] text-white px-4 py-3 resize-none ' 
+                                className='rounded border-white border bg-[#3B444C] text-white px-4 py-3 resize-none ' 
                                 name="feedback" 
                                 placeholder='あなたのお気に入りのお店など'
                             />
