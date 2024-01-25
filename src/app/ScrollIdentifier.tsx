@@ -17,8 +17,8 @@ export function ScrollIdentifier({currentCard, numberOfCards} : Props) {
     
     
     return(
-        <div className="fixed flex flex-col top-0 left-0 gap-2 h-dvh p-3 justify-center">
-            
+        <div className=" sticky top-0 flex flex-col gap-2 h-dvh p-3 justify-center"> {/* fixed top-0 left-0  */}
+        
             {Array.from({ length: numberOfCards }, (_, index) => {
                 return(
                     <div key={index} 

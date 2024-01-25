@@ -18,8 +18,8 @@
   align-items: center;
   background-color: #2A3238;
   transition: background .5s; /* .5s how long transitions takes */
-
 }
+
 
 .card {
   scroll-snap-align: center;
@@ -45,6 +45,7 @@
   background-size: cover;
   overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
 .topContent{
