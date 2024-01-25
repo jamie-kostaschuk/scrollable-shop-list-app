@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { ShopCard } from '@/components/ShopCard/ShopCard';
 import { EndingCard } from '@/components/EndingCard/EndingCard';
 
+
 export default function Home() {
         const topSectionInfo = {
         titleLineOne: "蔵前にある",
@@ -70,6 +71,7 @@ export default function Home() {
                         </svg>
                     </div>
                 </div>
+
                 {cardsInfo.map((item, index) => {
                     return(
                         <ShopCard 

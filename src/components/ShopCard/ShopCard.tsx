@@ -26,22 +26,29 @@ export function ShopCard({backgroundImageURL, title, secondaryTitle, description
                 priority
                 />
             </div>
-            <div className={styles.cardContent}>
+            
+                {/* 
+                --- Delete Later ---
+                <div className={styles.cardContent}>
                 <div className={styles.cardDisplayLocation}>
                     {Array.from(Array(numberOfCards), (e, i) => {
                         const currentCard = locationOfCard === i+1;
                         return <div key={i} className={styles.cardLocationItem} style={currentCard ? { backgroundColor: "#FFFFFF" } : {}}></div>
                     })}
                 </div>
-                <div className={styles.cardBottomContent}>
-                    <div className={styles.cardText}>
-                        <h2 className={styles.h2Heading}>{title}</h2>
-                        {secondaryTitle && <p className={styles.cardSecondaryHeader}>{secondaryTitle}</p>}
-                        <p>{description}</p>
-                    </div>
-                    <a className={styles.cardLink} href={linkURL} target="_blank">マップで見る</a>
                 </div>
+
+                 */}
+                
+            <div className={styles.cardBottomContent}>
+                <div className={styles.cardText}>
+                    <h2 className={styles.h2Heading}>{title}</h2>
+                    {secondaryTitle && <p className={styles.cardSecondaryHeader}>{secondaryTitle}</p>}
+                    <p>{description}</p>
+                </div>
+                <a className={styles.cardLink} href={linkURL} target="_blank">マップで見る</a>
             </div>
+            
         </div>
     )
 }
