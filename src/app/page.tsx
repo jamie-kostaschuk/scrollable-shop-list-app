@@ -1,8 +1,10 @@
+"use client"
 
-import { ScrollableContent } from './ScrollableContent';
+import React, { useRef, useEffect, useState } from 'react';
+import { ScrollIdentifier } from './ScrollIdentifier';
+
 import styles from './page.module.css'
 
-import React, { useRef, useEffect } from 'react';
 import Image from 'next/image'
 
 import { ShopCard } from '@/components/ShopCard/ShopCard';
@@ -10,6 +12,40 @@ import { EndingCard } from '@/components/EndingCard/EndingCard';
 
 
 export default function Home() {
+    const myRef = useRef<HTMLDivElement>(null);
+
+    const [CardNumber, setCardNumber] = useState(1);
+
+    useEffect(() => {
+        const backgroundColors = [
+            "#2A3238", // Default
+            "#FFCF24", // Yello
+            "#F3DC8B", // McLean
+            "#D4CDAB", // Dandelion
+            "#7A9A7F", //Cielo
+            "#2A3238", // Ending
+        ]
+        const handleScroll = () => {
+            for (var i = 0; i < backgroundColors.length; i++) {
+                // Calculate the upper and lower ranges, so if the screen is between these, change background color
+                const upperRange = (i + 1) * window.innerHeight
+                const lowerRange = (i + 1) * window.innerHeight - window.innerHeight
+                if (myRef.current?.scrollTop !== undefined && myRef.current?.scrollTop > lowerRange && myRef.current?.scrollTop < upperRange) {
+                    myRef.current.style.backgroundColor = backgroundColors[i];
+                    setCardNumber(i)
+                }
+            }  
+        };
+        if (myRef.current) {
+            myRef.current.addEventListener('scroll', handleScroll);
+
+            // Cleanup the event listener when the component unmounts
+            return () => {
+                myRef.current?.removeEventListener('scroll', handleScroll);
+            };
+        }
+    }, [myRef]);
+
         const topSectionInfo = {
         titleLineOne: "蔵前にある",
         titleLineTwo: "おすすめのお店",
@@ -48,7 +84,7 @@ export default function Home() {
 
     return (
         <div className={styles.mainContainer}>
-            <ScrollableContent>
+            <div className={styles.scrollContainer} ref={myRef}>
                 <div className={styles.topSection}>
                     <div className='absolute h-full w-full'>
                         <Image
@@ -71,23 +107,28 @@ export default function Home() {
                         </svg>
                     </div>
                 </div>
-
-                {cardsInfo.map((item, index) => {
-                    return(
-                        <ShopCard 
-                            key={index}
-                            backgroundImageURL={item.backgroundImageURL}
-                            title={item.title}
-                            secondaryTitle={item.secondaryTitle}
-                            description={item.description}
-                            linkURL={item.linkURL}
-                            numberOfCards={cardsInfo.length}
-                            locationOfCard={index + 1}
-                        /> 
-                    )
-                })}
+                <div className="w-full">
+                    <ScrollIdentifier currentCard={CardNumber} numberOfCards={4}/> 
+                    <div className='mt-[-100dvh]'>
+                        {cardsInfo.map((item, index) => {
+                            return(
+                                <div key={index} className="h-dvh w-full flex justify-end">
+                                    <ShopCard 
+                                        backgroundImageURL={item.backgroundImageURL}
+                                        title={item.title}
+                                        secondaryTitle={item.secondaryTitle}
+                                        description={item.description}
+                                        linkURL={item.linkURL}
+                                        numberOfCards={cardsInfo.length}
+                                        locationOfCard={index + 1}
+                                    />
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
                 <EndingCard />
-            </ScrollableContent>
+            </div>
         </div>
     )
 }
