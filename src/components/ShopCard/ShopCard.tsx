@@ -26,19 +26,6 @@ export function ShopCard({backgroundImageURL, title, secondaryTitle, description
                 priority
                 />
             </div>
-            
-                {/* 
-                --- Delete Later ---
-                <div className={styles.cardContent}>
-                <div className={styles.cardDisplayLocation}>
-                    {Array.from(Array(numberOfCards), (e, i) => {
-                        const currentCard = locationOfCard === i+1;
-                        return <div key={i} className={styles.cardLocationItem} style={currentCard ? { backgroundColor: "#FFFFFF" } : {}}></div>
-                    })}
-                </div>
-                </div>
-
-                 */}
                 
             <div className={styles.cardBottomContent}>
                 <div className={styles.cardText}>
