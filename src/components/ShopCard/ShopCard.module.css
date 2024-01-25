@@ -25,6 +25,7 @@
     height: 100%;
     color: #FFFFFF;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 4.17%, rgba(0, 0, 0, 0.00) 16.15%, rgba(0, 0, 0, 0.40) 80.73%, rgba(0, 0, 0, 0.40) 100%);
+    word-break: keep-all;
 }
 
 /* card Location */
