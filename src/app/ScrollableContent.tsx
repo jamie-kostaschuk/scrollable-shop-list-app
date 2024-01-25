@@ -2,10 +2,11 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 import {ShopCard} from '@/components/ShopCard/ShopCard';
 import { EndingCard } from '@/components/EndingCard/EndingCard';
+import { ScrollIdentifier } from './ScrollIdentifier';
 
 
 interface ScrollableContentProps {
@@ -16,6 +17,8 @@ interface ScrollableContentProps {
 export function ScrollableContent({children}: ScrollableContentProps) {
 
     const myRef = useRef<HTMLDivElement>(null);
+
+    const [CardNumber, setCardNumber] = useState(1);
 
     useEffect(() => {
         const backgroundColors = [
@@ -33,6 +36,7 @@ export function ScrollableContent({children}: ScrollableContentProps) {
                 const lowerRange = (i + 1) * window.innerHeight - window.innerHeight
                 if (myRef.current?.scrollTop !== undefined && myRef.current?.scrollTop > lowerRange && myRef.current?.scrollTop < upperRange) {
                     myRef.current.style.backgroundColor = backgroundColors[i];
+                    setCardNumber(i)
                 }
             }  
         };
@@ -48,6 +52,7 @@ export function ScrollableContent({children}: ScrollableContentProps) {
 
     return(
         <div className={styles.scrollContainer} ref={myRef}>
+            <ScrollIdentifier currentCard={CardNumber} numberOfCards={4}/> 
             {children}
         </div>
     )

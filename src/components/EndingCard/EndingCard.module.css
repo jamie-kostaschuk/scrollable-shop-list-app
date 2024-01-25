@@ -8,6 +8,8 @@
   align-items: flex-end;
   background-size: cover;
   overflow: hidden;
+  background-color: #2A3238;
+  z-index: 5;
 }
 
 .cardContent{
